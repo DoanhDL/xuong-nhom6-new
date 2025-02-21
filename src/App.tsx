@@ -9,7 +9,6 @@ function App() {
   const routes = useRoutes([{ path: "/books", element: <List /> }]);
   return routes;
 
-  return <></>;
 }
 
 export default App;
