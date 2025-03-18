@@ -1,14 +1,21 @@
-import { useRoutes } from "react-router-dom";
-import "./App.css";
-import List from "./components/list";
+import { Routes, Route, Outlet } from "react-router-dom";
+import Dashboard from "./components/LayoutAdmin";
+import CategoryPage from "./components/CategoryPage";
+import LayoutAdmin from "./components/LayoutAdmin";
+
+
 
 function App() {
-  {
-    /* Viết router ở đây như ví dụ bên dưới */
-  }
-  const routes = useRoutes([{ path: "/books", element: <List /> }]);
-  return routes;
+  return (
+    <Routes>
+      <Route path="admin" element={<LayoutAdmin>
+        <Outlet/>
+      </LayoutAdmin>}>
+      <Route index element={<CategoryPage/>}/>
+      </Route>
 
+    </Routes>
+  );
 }
 
 export default App;
