@@ -1,13 +1,108 @@
 {
-    "posts": [
-      { "id": "1", "title": "a title", "views": 100 },
-      { "id": "2", "title": "another title", "views": 200 }
-    ],
-    "comments": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-      "name": "typicode"
+  "orders": [
+    {
+      "id": "1",
+      "customer_name": "Nguyễn Văn A update",
+      "total_price": 80000,
+      "order_status": "Đã hủy",
+      "created_at": "2025-03-19T12:00:00Z",
+      "updated_at": "2025-03-20T15:11:56.547Z"
+    },
+    {
+      "id": "2",
+      "customer_name": "Trần Thị B",
+      "total_price": 28000,
+      "order_status": "Hoàn thành",
+      "created_at": "2025-03-18T14:30:00Z",
+      "updated_at": "2025-03-18T16:00:00Z"
+    },
+    {
+      "id": "3",
+      "customer_name": "Phạm Minh C",
+      "total_price": 120000,
+      "order_status": "Chờ xác nhận",
+      "created_at": "2025-03-17T10:15:00Z",
+      "updated_at": "2025-03-20T15:08:04.112Z"
+    },
+    {
+      "id": "4",
+      "customer_name": "Lê Thị D",
+      "total_price": 65000,
+      "order_status": "Đang giao",
+      "created_at": "2025-03-16T09:45:00Z",
+      "updated_at": "2025-03-16T10:00:00Z"
+    },
+    {
+      "id": "5",
+      "customer_name": "Hoàng Quang E",
+      "total_price": 45000,
+      "order_status": "Đã hủy",
+      "created_at": "2025-03-15T13:00:00Z",
+      "updated_at": "2025-03-19T15:22:02.830Z"
+    },
+    {
+      "id": "6",
+      "customer_name": "Vũ Hữu F",
+      "total_price": 95000,
+      "order_status": "Hoàn thành",
+      "created_at": "2025-03-14T16:00:00Z",
+      "updated_at": "2025-03-14T17:30:00Z"
+    },
+    {
+      "id": "7",
+      "customer_name": "Ngô Thanh G",
+      "total_price": 110000,
+      "order_status": "Hoàn thành",
+      "created_at": "2025-03-13T11:30:00Z",
+      "updated_at": "2025-03-13T12:30:00Z"
+    },
+    {
+      "id": "8",
+      "customer_name": "Bùi Minh H",
+      "total_price": 54000,
+      "order_status": "Chờ xác nhận",
+      "created_at": "2025-03-12T08:00:00Z",
+      "updated_at": "2025-03-12T09:00:00Z"
+    },
+    {
+      "id": "9",
+      "customer_name": "Lý Hoàng I",
+      "total_price": 70000,
+      "order_status": "Đã hủy",
+      "created_at": "2025-03-11T15:00:00Z",
+      "updated_at": "2025-03-11T16:00:00Z"
+    },
+    {
+      "id": "10",
+      "customer_name": "Đoàn Lệ J",
+      "total_price": 56000,
+      "order_status": "Đang giao",
+      "created_at": "2025-03-10T14:45:00Z",
+      "updated_at": "2025-03-10T15:00:00Z"
+    },
+    {
+      "id": "2a60",
+      "customer_name": "Nguyễn Văn A update33",
+      "total_price": "55.555",
+      "order_status": "Đang giao",
+      "created_at": "2025-03-19T17:36:32.933Z",
+      "updated_at": "2025-03-19T17:41:40.231Z"
+    },
+    {
+      "id": "33a5",
+      "customer_name": "Đàm Hà Thông test111",
+      "total_price": "44.444",
+      "order_status": "Hoàn thành",
+      "created_at": "2025-03-19T17:37:12.333Z",
+      "updated_at": "2025-03-19T17:41:25.265Z"
+    },
+    {
+      "id": "f03b",
+      "customer_name": "vi thi xuan",
+      "total_price": "200.000",
+      "order_status": "Chờ xác nhận",
+      "created_at": "2025-03-20T15:07:15.630Z",
+      "updated_at": "2025-03-20T15:07:57.881Z"
     }
-  }
+  ]
+}

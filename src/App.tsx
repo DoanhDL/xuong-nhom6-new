@@ -1,13 +1,27 @@
-import { useRoutes } from "react-router-dom";
+import { Route, Routes, useRoutes } from "react-router-dom";
 import "./App.css";
-import List from "./components/list";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ListOrders from "./components/ListOrders";
+import AddOrders from "./components/AddOrders";
+import EditOrders from "./components/EditOrders";
+
+// Tạo instance của Query Client
+const queryClient = new QueryClient();
 function App() {
-  {
-    /* Viết router ở đây như ví dụ bên dưới */
-  }
-  const routes = useRoutes([{ path: "/books", element: <List /> }]);
-  return routes;
+  return (
+    <div>
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route path="orders">
+            <Route index element={<ListOrders />} />
+            <Route path="add" element={<AddOrders />} />
+            <Route path="edit/:id" element={<EditOrders />} />
+          </Route>
+        </Routes>
+      </QueryClientProvider>
+    </div>
+  )
 
 }
 
