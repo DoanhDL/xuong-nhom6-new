@@ -165,7 +165,7 @@ const ListOrders: React.FC = () => {
             key: "action",
             render: (_: any, record: IOrder) => (
                 <Space size="middle">
-                    <Link to={`/orders/edit/${record.id}`} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">
+                    <Link to={`/admin/orders/edit/${record.id}`} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">
                         Sửa
                     </Link>
                     <button
@@ -186,7 +186,7 @@ const ListOrders: React.FC = () => {
                     Danh mục sản phẩm
                 </h2>
                 <h2 className="text-white float-right bg-green-600 px-4 py-2 rounded inline-block ">
-                    <Link to={"/orders/add"}>Thêm sản phẩm Mới</Link>
+                    <Link to={"/admin/orders/add"}>Thêm sản phẩm Mới</Link>
                 </h2>
             </div>
             <Table<IOrder> columns={columns} dataSource={orders} rowKey="id" pagination={{ pageSize: 5 }} />

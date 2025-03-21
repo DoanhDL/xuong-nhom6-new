@@ -39,7 +39,7 @@ const OrderForm: React.FC<{ mode: "add" | "edit" }> = ({ mode }) => {
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["orders"] });
             message.success(`${mode === "edit" ? "Cập nhật" : "Thêm"} đơn hàng thành công!`);
-            navigate("/orders");
+            navigate("/admin/orders");
         },
         onError: () => {
             message.error(`${mode === "edit" ? "Cập nhật" : "Thêm"} đơn hàng thất bại!`);
@@ -80,7 +80,7 @@ const OrderForm: React.FC<{ mode: "add" | "edit" }> = ({ mode }) => {
 
             <Form.Item>
                 <Button type="primary" htmlType="submit">{mode === "edit" ? "Cập nhật" : "Thêm"}</Button>
-                <Button style={{ marginLeft: 10 }} onClick={() => navigate("/orders")}>Hủy</Button>
+                <Button style={{ marginLeft: 10 }} onClick={() => navigate("/admin/orders")}>Hủy</Button>
             </Form.Item>
         </Form>
     );

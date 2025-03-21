@@ -1,28 +1,26 @@
-import { Route, Routes, useRoutes } from "react-router-dom";
-import "./App.css";
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Routes, Route, Outlet } from "react-router-dom";
+import LayoutAdmin from "./components/LayoutAdmin";
+import CategoryPage from "./components/CategoryPage";
 import ListOrders from "./components/ListOrders";
-import AddOrders from "./components/AddOrders";
-import EditOrders from "./components/EditOrders";
+import AddOrder from "./components/AddOrders";
+import EditOrder from "./components/EditOrders";
 
-// Tạo instance của Query Client
-const queryClient = new QueryClient();
 function App() {
   return (
-    <div>
-      <QueryClientProvider client={queryClient}>
-        <Routes>
-          <Route path="orders">
-            <Route index element={<ListOrders />} />
-            <Route path="add" element={<AddOrders />} />
-            <Route path="edit/:id" element={<EditOrders />} />
-          </Route>
-        </Routes>
-      </QueryClientProvider>
-    </div>
-  )
-
+    <Routes>
+      <Route path="admin" element={
+        <LayoutAdmin>
+          <Outlet />
+        </LayoutAdmin>}>
+        <Route path="category" element={<CategoryPage />} />
+        <Route path="orders" element={<ListOrders />} />
+        <Route path="orders/add" element={<AddOrder />} />
+        <Route path="orders/edit/:id" element={<EditOrder />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;
+
+
