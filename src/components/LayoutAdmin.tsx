@@ -15,6 +15,7 @@ type LayoutAdmin = {
   children: React.ReactNode;
 };
 
+
 const LayoutAdmin = ({ children }: LayoutAdmin) => {
   return (
     <div className="min-h-screen flex bg-gray-100 text-gray-900">
