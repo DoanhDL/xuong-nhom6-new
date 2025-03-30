@@ -29,7 +29,7 @@ const LayoutAdmin = ({ children }: LayoutAdmin) => {
           <Link to="/" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">
             <Grid className="w-5 h-5" /> Dashboards
           </Link>
-          <Link to="/category" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">
+          <Link to="/admin/category" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">
             <ShoppingCart className="w-5 h-5" /> Category
           </Link>
           <Link to="/admin/orders" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">

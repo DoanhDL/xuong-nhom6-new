@@ -5,6 +5,8 @@ import { IOrder } from "../interface/type";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
+import useList from "../hooks/useList";
+import useDelete from "../hooks/useDelete";
 
 const { confirm } = Modal;
 const { Option } = Select;
@@ -13,33 +15,27 @@ const { Option } = Select;
 const ListOrders: React.FC = () => {
     const queryClient = useQueryClient();
 
-    const ListOrders = async (): Promise<IOrder[]> => {
-        try {
-            const { data } = await axios.get(`http://localhost:3000/orders`);
-            return data;
-        } catch (error) {
-            console.error("Lỗi khi hiển thị đơn hàng");
-            return [];
-        }
-    };
+    const { data, isError, isLoading, error } = useList({ resource: "orders" });
+    const deleteOrders = useDelete({ resource: "orders" });
 
-    const { data: orders, isLoading, isError } = useQuery({
-        queryKey: ["orders"],
-        queryFn: ListOrders,
-    });
 
-    const deleteOrders = useMutation({
-        mutationFn: async (id: string) => {
-            await axios.delete(`http://localhost:3000/orders/${id}`);
-        },
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["orders"] });
-            message.success("Xoá đơn hàng thành công");
-        },
-        onError: () => {
-            message.error("Xoá đơn hàng thất bại");
-        },
-    });
+    const orders = data?.data?.map((item: any) => ({
+        key: item.id,
+        ...item,
+    }));
+
+    // const deleteOrders = useMutation({
+    //     mutationFn: async (id: string) => {
+    //         await axios.delete(`http://localhost:3000/orders/${id}`);
+    //     },
+    //     onSuccess: () => {
+    //         queryClient.invalidateQueries({ queryKey: ["orders"] });
+    //         message.success("Xoá đơn hàng thành công");
+    //     },
+    //     onError: () => {
+    //         message.error("Xoá đơn hàng thất bại");
+    //     },
+    // });
 
     const handleChangeStatus = async (id: string, newStatus: string) => {
         try {
@@ -53,7 +49,7 @@ const ListOrders: React.FC = () => {
         }
     };
 
-    const showDeleteConfirm = (id: string) => {
+    const showDeleteConfirm = (id: number | string) => {
         confirm({
             title: "Bạn có chắc chắn muốn xoá Đơn hàng này?",
             icon: <ExclamationCircleOutlined />,
@@ -62,7 +58,14 @@ const ListOrders: React.FC = () => {
             okType: "danger",
             cancelText: "Huỷ",
             onOk() {
-                deleteOrders.mutate(id);
+                deleteOrders.mutate(id, {
+                    onSuccess: () => {
+                        message.success("xoá đơn hàng thành công");
+                    },
+                    onError: () => {
+                        message.error("xoá đơn hàng thất bại");
+                    },
+                });
             },
             onCancel() {
                 message.info("Hủy xoá Đơn hàng!");
@@ -71,7 +74,7 @@ const ListOrders: React.FC = () => {
     };
 
     if (isLoading) return <p>Loading...</p>;
-    if (isError) return <p>Error fetching orders</p>;
+    if (isError) return <p>Error: {error.message}</p>;
 
     const getColor = (status: string) => {
         switch (status) {
