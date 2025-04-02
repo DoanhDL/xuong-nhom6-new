@@ -1,8 +1,98 @@
 {
+  "orders": [
+    {
+      "customer_name": "Nguyễn Văn A 1",
+      "total_price": 80000,
+      "order_status": "Hoàn thành",
+      "order_date": null,
+      "id": "1",
+      "updated_at": "2025-04-02T17:12:58.591Z"
+    },
+    {
+      "id": "2",
+      "customer_name": "Trần Thị B",
+      "total_price": 28000,
+      "order_status": "Hoàn thành",
+      "created_at": "2025-03-18T14:30:00Z",
+      "updated_at": "2025-03-18T16:00:00Z"
+    },
+    {
+      "id": "3",
+      "customer_name": "Phạm Minh C update",
+      "total_price": 120000,
+      "order_status": "Đã hủy",
+      "created_at": "2025-03-17T10:15:00Z",
+      "updated_at": "2025-03-27T07:22:43.819Z"
+    },
+    {
+      "id": "4",
+      "customer_name": "Lê Thị D",
+      "total_price": 65000,
+      "order_status": "Đang giao",
+      "created_at": "2025-03-16T09:45:00Z",
+      "updated_at": "2025-03-16T10:00:00Z"
+    },
+    {
+      "id": "5",
+      "customer_name": "Hoàng Quang E",
+      "total_price": 45000,
+      "order_status": "Đã hủy",
+      "created_at": "2025-03-15T13:00:00Z",
+      "updated_at": "2025-03-19T15:22:02.830Z"
+    },
+    {
+      "id": "6",
+      "customer_name": "Vũ Hữu F",
+      "total_price": 95000,
+      "order_status": "Hoàn thành",
+      "created_at": "2025-03-14T16:00:00Z",
+      "updated_at": "2025-03-14T17:30:00Z"
+    },
+    {
+      "id": "7",
+      "customer_name": "Ngô Thanh G",
+      "total_price": 110000,
+      "order_status": "Hoàn thành",
+      "created_at": "2025-03-13T11:30:00Z",
+      "updated_at": "2025-03-13T12:30:00Z"
+    },
+    {
+      "id": "8",
+      "customer_name": "Bùi Minh H",
+      "total_price": 54000,
+      "order_status": "Chờ xác nhận",
+      "created_at": "2025-03-12T08:00:00Z",
+      "updated_at": "2025-03-12T09:00:00Z"
+    },
+    {
+      "id": "9",
+      "customer_name": "Lý Hoàng I",
+      "total_price": 70000,
+      "order_status": "Đã hủy",
+      "created_at": "2025-03-11T15:00:00Z",
+      "updated_at": "2025-03-11T16:00:00Z"
+    },
+    {
+      "id": "10",
+      "customer_name": "Đoàn Lệ J",
+      "total_price": 56000,
+      "order_status": "Đang giao",
+      "created_at": "2025-03-10T14:45:00Z",
+      "updated_at": "2025-03-10T15:00:00Z"
+    },
+    {
+      "id": "11",
+      "customer_name": "Halo Vite",
+      "total_price": "567890",
+      "order_status": "Chờ xác nhận",
+      "created_at": "2025-04-02T16:36:56.458Z",
+      "updated_at": "2025-04-02T17:00:08.086Z"
+    }
+  ],
   "categories": [
     {
-      "name": "Phạm Văn Tiến8",
-      "id": 1
+      "name": "Phạm Văn Tiến 10",
+      "id": "1"
     }
   ]
 }

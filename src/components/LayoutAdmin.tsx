@@ -11,11 +11,12 @@ const data = [
   { name: "May", current: 6000, previous: 5100 },
   { name: "Jun", current: 7000, previous: 6500 },
 ];
-type LayoutAdmin={
+type LayoutAdmin = {
   children: React.ReactNode;
 };
 
-const LayoutAdmin = ({children}: LayoutAdmin) => {
+
+const LayoutAdmin = ({ children }: LayoutAdmin) => {
   return (
     <div className="min-h-screen flex bg-gray-100 text-gray-900">
       {/* Sidebar */}
@@ -28,8 +29,11 @@ const LayoutAdmin = ({children}: LayoutAdmin) => {
           <Link to="/" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">
             <Grid className="w-5 h-5" /> Dashboards
           </Link>
-          <Link to="/category" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">
+          <Link to="/admin/category" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">
             <ShoppingCart className="w-5 h-5" /> Category
+          </Link>
+          <Link to="/admin/orders" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">
+            <ShoppingCart className="w-5 h-5" /> Orders
           </Link>
           <Link to="/users" className="flex items-center gap-2 p-2 w-full hover:bg-gray-100 rounded">
             <Users className="w-5 h-5" /> Users
@@ -46,26 +50,26 @@ const LayoutAdmin = ({children}: LayoutAdmin) => {
       </aside>
 
       {/* Main Content */}
-     <div className="flex-1 p-6">
+      <div className="flex-1 p-6">
         {/* Header */}
         <header className="flex items-center justify-between p-4 bg-blue-600 text-white rounded-lg shadow mb-6">
           <h2 className="text-lg font-semibold">Dashboard</h2>
           <div className="flex items-center space-x-4">
             <Bell className="w-6 h-6 cursor-pointer" />
-            <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2022/12/16/1127919/Messi-Argentina.jpg" alt="Profile" className="w-10 h-10 rounded-full border-2 border-white" />
-          </div>  
 
+            <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2022/12/16/1127919/Messi-Argentina.jpg" alt="Profile" className="w-10 h-10 rounded-full border-2 border-white" />
+          </div>
 
         </header>
-      
-           {children}
-        
+
+        {children}
+
 
         {/* Stats Section */}
 
         {/* Chart */}
-     
-        </div>
+
+      </div>
     </div>
   );
 };
