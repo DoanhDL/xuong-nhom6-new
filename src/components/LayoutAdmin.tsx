@@ -50,15 +50,15 @@ const LayoutAdmin = ({ children }: LayoutAdmin) => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <div className="flex-1 p-6">
         {/* Header */}
         <header className="flex items-center justify-between p-4 bg-blue-600 text-white rounded-lg shadow mb-6">
           <h2 className="text-lg font-semibold">Dashboard</h2>
           <div className="flex items-center space-x-4">
             <Bell className="w-6 h-6 cursor-pointer" />
-            <img src="https://via.placeholder.com/40" alt="Profile" className="w-10 h-10 rounded-full border-2 border-white" />
-          </div>
 
+            <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2022/12/16/1127919/Messi-Argentina.jpg" alt="Profile" className="w-10 h-10 rounded-full border-2 border-white" />
+          </div>
 
         </header>
 
@@ -69,7 +69,7 @@ const LayoutAdmin = ({ children }: LayoutAdmin) => {
 
         {/* Chart */}
 
-      </main>
+      </div>
     </div>
   );
 };

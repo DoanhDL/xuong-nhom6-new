@@ -1,36 +1,32 @@
-import { Button, DatePicker, Form, Input, Select, message } from 'antd';
-import React from 'react';
-import dayjs from 'dayjs';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import useOne from '../hooks/useOne';
-import useUpdate from '../hooks/useUpdate';
+import { Button, Form, Input, Select, message } from 'antd'
+import React from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import useOne from '../../hooks/Orders/useOne';
+import useUpdate from '../../hooks/Orders/useUpdate';
 
-const UpdateOrder = () => {
+const EditOrders: React.FC = () => {
   const { id } = useParams();
-  const { data, isLoading } = useOne({ resource: "orders", id: Number(id) });
-  const { mutate } = useUpdate({ resource: "orders", id: Number(id) });
+  const { data, isLoading, isError, error } = useOne({ resource: "orders", id: String(id) });
+  const { mutate } = useUpdate({ resource: "orders", id: String(id) });
   const navigate = useNavigate();
 
+
   const onFinish = (formData: any) => {
-    mutate(
-      {
-        ...formData,
-        order_date: formData.order_date ? formData.order_date.format("YYYY-MM-DD") : null,
+    mutate(formData, {
+      onSuccess: () => {
+        message.success("Cập nhật sản phẩm thành công");
+        setTimeout(() => {
+          navigate("/admin/orders");
+        }, 1000);
       },
-      {
-        onSuccess: () => {
-          message.success("Cập nhật đơn hàng thành công");
-          setTimeout(() => {
-            navigate(`/admin/orders`);
-          }, 2000);
-        },
-        onError: (error: any) => console.log(error?.response?.data),
-      }
-    );
-  };
+      onError: (error: any) => console.log(error?.response?.data),
+    });
+  }
+
+
 
   if (isLoading) return <div>Loading...</div>;
-
+  if (isError) return <div>Error: {error.message}</div>;
   return (
     <>
       <div className='flex items-center justify-between mb-4'>
@@ -43,10 +39,7 @@ const UpdateOrder = () => {
       <Form
         onFinish={onFinish}
         layout="vertical"
-        initialValues={{
-          ...data?.data,
-          order_date: data?.data?.order_date ? dayjs(data.data.order_date) : null,
-        }}
+        initialValues={data?.data}
       >
         <Form.Item
           label="Tên Khách Hàng"
@@ -80,7 +73,7 @@ const UpdateOrder = () => {
         </Form.Item>
       </Form>
     </>
-  );
-};
+  )
+}
 
-export default UpdateOrder;
+export default EditOrders

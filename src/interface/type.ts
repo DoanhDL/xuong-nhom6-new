@@ -1,12 +1,11 @@
-export interface IOrder {
-  id:string; // ID duy nhất của đơn hàng
-  customer_id: string; // ID của khách hàng
-  customer_name: string; // Tên khách hàng
-  total_price: number; // Tổng giá trị đơn hàng
-  order_status: "Chờ xác nhận" | "Đang giao" | "Hoàn thành" | "Đã hủy"; // Trạng thái đơn hàng
-  created_at: string; // Ngày giờ khách đặt hàng
-  updated_at: string; // Ngày cập nhật trạng thái cuối cùng
+
+export interface IOrders {
+  id: string
+  customer_name: string
+  total_price: number
+  order_status: string
+  created_at: Date
+  updated_at: Date
 }
 
-
-export type OrderFromData = Omit<IOrder, "id">
+export type OrdersFormData = Omit<IOrders, "id">

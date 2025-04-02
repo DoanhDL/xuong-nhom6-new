@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query"
-import { getListOne } from "../providers/ordersProvider"
+import { getListOne } from "../../providers/Orders/ordersProvider"
 
 
 type useOneParams ={
   resource: string
-  id: number| string
+  id: string
 }
 
 const useOne = ({resource,id}: useOneParams) => {

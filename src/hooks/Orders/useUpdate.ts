@@ -1,24 +1,25 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { getUpdate } from "../providers/ordersProvider"
+import { getUpdate } from "../../providers/Orders/ordersProvider"
+
 
 type useUpdateParams ={
-    resource: string
-    id: number | string
+   resource: string
+   id: string
 }
-
 
 const useUpdate = ({resource, id}: useUpdateParams) => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn:(dataOrders: any) => {
-             return getUpdate({resource,dataOrders,id})
+        mutationFn:(variable: any) => {
+            return getUpdate({resource, variable, id});
         },
-        onSuccess: ()=>{
+        onSuccess:() =>{
             queryClient.invalidateQueries({
-                queryKey:[resource]
+                queryKey: [resource]
             })
         }
     })
+
 }
 
 export default useUpdate;
